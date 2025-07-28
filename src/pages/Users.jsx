@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import api from "../axios/axios";
+import sheets from "../axios/axios";
 import CardUser from "../components/CardUser";
 import { Box, Typography, Container } from "@mui/material";
 
 function Users() {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    api.get("/users")
-      .then(response => setUsers(response.data))
-      .catch(error => console.error("Erro ao buscar usuários:", error));
-  }, []);
+useEffect(() => {
+  sheets.users()
+    .then(response => setUsers(response.data))
+    .catch(error => console.error("Erro:", error));
+}, []);
 
   return (
     <Container maxWidth="md" sx={{ mt: 6 }}>

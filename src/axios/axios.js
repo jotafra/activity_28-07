@@ -1,3 +1,4 @@
+// api.js
 import axios from "axios";
 
 const api = axios.create({
@@ -7,4 +8,10 @@ const api = axios.create({
   },
 });
 
-export default api;
+const sheets = {
+  posts: () => api.get("posts"),
+  todos: () => api.get("todos"),
+  users: () => api.get("users"),
+};
+
+export default sheets;
